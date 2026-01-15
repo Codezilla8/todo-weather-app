@@ -1,0 +1,150 @@
+.weather-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #241b5a, #2e2672, #3b2a7a);
+  color: #ffffff;
+  font-family: "Inter", system-ui, sans-serif;
+  position: relative;
+  padding: 40px 24px;
+}
+
+.bg-pattern {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(255, 0, 100, 0.25), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(0, 100, 255, 0.25), transparent 60%);
+  z-index: 0;
+}
+
+.weather-container {
+  max-width: 1100px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.weather-loading,
+.weather-error {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #241b5a, #3b2a7a);
+  color: white;
+  font-size: 18px;
+}
+
+/* Search */
+.search-form {
+  display: flex;
+  justify-content: center;
+}
+
+.search-form input {
+  width: 280px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Cards */
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  border-radius: 24px;
+  padding: 24px;
+}
+
+/* Main card */
+.main-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.location {
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.temp {
+  font-size: 72px;
+  margin: 8px 0;
+}
+
+.condition {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.feels-like {
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.main-icon {
+  width: 110px;
+}
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.stat-card span {
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.stat-card strong {
+  font-size: 22px;
+  display: block;
+  margin-top: 6px;
+}
+
+/* Hourly */
+section h2 {
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.hourly-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.hourly-card {
+  min-width: 90px;
+  text-align: center;
+}
+
+.hourly-card img {
+  width: 40px;
+  margin: 6px auto;
+}
+
+/* Weekly */
+.weekly-card h2 {
+  margin-bottom: 16px;
+}
+
+.weekly-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.weekly-row:last-child {
+  border-bottom: none;
+}

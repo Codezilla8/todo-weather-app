@@ -1,0 +1,137 @@
+.home-root {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: #000; 
+}
+
+.bg-layer {
+  position: absolute;
+  inset: 0;
+  background-image: url("/landing-bg.png");
+  background-size: cover;
+  background-position: center;
+  animation: bgFade 1.5s ease forwards;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hello {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: textFade 0.8s ease forwards;
+  animation-delay: 1.2s;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.9);
+}
+
+/* .links {
+  opacity: 0;
+  animation: textFade 0.6s ease forwards;
+  animation-delay: 1.8s;
+}
+
+.links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.links a:hover {
+  text-decoration: underline;
+} */
+
+.links {
+  position: relative;
+  display: flex;
+  gap: 1.6rem; 
+  padding: 0.4rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+
+  opacity: 0;
+  animation: textFade 0.6s ease forwards;
+  animation-delay: 1.8s;
+}
+
+/* the sliding pill */
+.links::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: calc(100% - 8px);
+  width: calc(50% - 8px);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+
+/* move pill when hovering second link */
+.links:hover::before {
+  transform: translateX(100%);
+}
+
+.links a {
+  position: relative;
+  z-index: 1;
+  padding: 0.6rem 1.2rem;
+  font-size: 1.05rem;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.links:hover a:last-child {
+  color: #000;
+}
+
+.links:hover a:first-child {
+  color: white;
+}
+
+.links a:first-child {
+  color: #000;
+}
+
+
+@keyframes bgFade {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes textFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
