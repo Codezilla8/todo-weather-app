@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./todo.css";
+import "./Todo.css";
 
 export default function Todo() {
   const [todos, setTodos] = useState([]);

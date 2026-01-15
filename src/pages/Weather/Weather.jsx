@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./weather.css";
+import "./Weather.css";
 
 const API_KEY = "7be3ce22738f4ea4959212709261501"; // put your real key
 
