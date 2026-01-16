@@ -148,3 +148,57 @@ section h2 {
 .weekly-row:last-child {
   border-bottom: none;
 }
+
+
+.pre-search {
+  min-height: 70vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.pre-title {
+  font-size: 56px;
+  margin-bottom: 8px;
+}
+
+.pre-subtitle {
+  opacity: 0.6;
+  margin-bottom: 24px;
+  font-size: 15px;
+}
+
+
+/* Map card
+.map-card {
+  padding: 20px;
+}
+
+.map-title {
+  font-size: 16px;
+  margin-bottom: 12px;
+  opacity: 0.75;
+}
+
+.map-wrapper {
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+}
+
+.map-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.map-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.25)
+  );
+  pointer-events: none;
+} */

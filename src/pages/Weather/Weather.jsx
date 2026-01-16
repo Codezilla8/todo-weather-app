@@ -1,18 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
 
-const API_KEY = "7be3ce22738f4ea4959212709261501"; // put your real key
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 export default function Weather() {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [query, setQuery] = useState("Kolkata");
-
-  useEffect(() => {
-    fetchWeather(query);
-  }, []);
+  const [query, setQuery] = useState("");
+  const [hasSearched, setHasSearched] = useState(false);
 
   async function fetchWeather(city) {
     try {
@@ -50,7 +47,31 @@ export default function Weather() {
   function handleSubmit(e) {
     e.preventDefault();
     if (!query.trim()) return;
+    setHasSearched(true);
     fetchWeather(query.trim());
+  }
+
+  if (!hasSearched && !loading) {
+    return (
+      <div className="weather-page">
+        <div className="bg-pattern" />
+
+        <div className="weather-container pre-search">
+          <h1 className="pre-title">Weather</h1>
+          <p className="pre-subtitle">
+            Search for a city to see current weather and forecasts
+          </p>
+
+          <form className="search-form" onSubmit={handleSubmit}>
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search city..."
+            />
+          </form>
+        </div>
+      </div>
+    );
   }
 
   if (loading) {
@@ -63,10 +84,15 @@ export default function Weather() {
 
   const { location, current, forecast } = data;
 
+  // const osmMapUrl =
+  // `https://staticmap.openstreetmap.de/staticmap.php` +
+  // `?center=${location}` +
+  // `&zoom=11` +
+  // `&size=700x350`;
+
+
   return (
     <div className="weather-page">
-
-      {/* background pattern */}
       <div className="bg-pattern" />
 
       <div className="weather-container">
@@ -124,6 +150,18 @@ export default function Weather() {
             <strong>{current.uv}</strong>
           </div>
         </div>
+
+        {/* MAP CARD */}
+        {/* <div className="card map-card">
+          <h2 className="map-title">Location</h2>
+          <div className="map-wrapper">
+            <img
+              src={osmMapUrl}
+              alt={`Map of ${location.name}`}
+              loading="lazy"
+            />
+          </div>
+        </div> */}
 
         {/* HOURLY */}
         <section>
