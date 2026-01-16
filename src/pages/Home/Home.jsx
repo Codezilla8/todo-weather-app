@@ -8,11 +8,11 @@ export default function Home() {
       <div className="overlay" />
 
       <div className="content">
-        <h1 className="hello">Hello</h1>
+        <h1 className="hello">Hello!</h1>
 
         <div className="links">
-          <Link to="/weather">Check weather</Link>
-          <Link to="/todo">Check your boxes</Link>
+          <Link to="/weather">Weather looks...👀</Link>
+          <Link to="/todo">Check your boxes!</Link>
         </div>
       </div>
     </div>
